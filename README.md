@@ -1,45 +1,58 @@
 # 🌍 Analyse Stratégique du Marché Airbnb Europe
-> **Analyse exploratoire (EDA) et recommandations stratégiques pour l'investissement locatif.**
 
-![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
-![Pandas](https://img.shields.io/badge/Pandas-150458?style=for-the-badge&logo=pandas&logoColor=white)
-![Tableau Style](https://img.shields.io/badge/Style-Tableau%20Public-orange?style=for-the-badge)
+> **Projet Data Analysis - Janvier 2026**
+> Exploration de données et recommandations d'investissement sur le marché locatif européen.
 
-## 📌 Présentation du Projet
-Ce projet a été réalisé dans le cadre d'un module de **Data Analysis**. L'objectif est d'analyser un dataset de plus de 30 000 lignes regroupant les offres Airbnb dans 6 capitales européennes afin d'orienter une prise de décision stratégique pour un investisseur.
-
-
-
-## 📊 Problématique
-> *Quels facteurs influencent réellement le prix et la satisfaction client, et où se situent les meilleures opportunités de rendement en Europe ?*
-
-## 🛠️ Méthodologie & Nettoyage
-Le projet suit les étapes suivantes :
-1. **Extraction :** Importation des données depuis 10 fichiers CSV sources.
-2. **Cleaning :** Gestion des doublons, traitement des outliers (> 1000€) et normalisation des prix par personne.
-3. **Feature Engineering :** Création d'indices de distance et de catégories de logements.
-
-## 📈 Visualisations Clés
-### 1. Cartographie des Prix
-Une analyse géographique permettant de visualiser la densité des offres et les zones de prix élevés.
-
-![Carte Europe](images/map_europe.png)  
-*(Note : Importe ici l'image de la carte que tu as générée dans Colab)*
-
-### 2. Corrélation Propreté vs Satisfaction
-Le graphique montre que la propreté est le levier n°1 de la notation globale.
-
-
-
-## 💡 Insights Stratégiques
-* **Zone d'Or (3-5km) :** Les prix ne chutent pas linéairement avec la distance ; les biens en périphérie proche conservent une forte valeur.
-* **Paradoxe du Superhost :** Les Superhosts affichent des prix 8% inférieurs à la moyenne mais un taux de remplissage et une satisfaction bien plus élevés.
-* **Impact Propreté :** Une note de propreté parfaite est indispensable pour maintenir un score > 90/100.
-
-## 🚀 Comment utiliser ce repo ?
-1. Clonez le projet : `git clone https://github.com/TON_PSEUDO/Airbnb-Analysis.git`
-2. Installez les dépendances : `pip install -r requirements.txt`
-3. Ouvrez le notebook dans `notebooks/Analyse.ipynb`.
+![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python&logoColor=white)
+![Pandas](https://img.shields.io/badge/Pandas-Data-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Validé-success?style=for-the-badge)
 
 ---
-© 2026 - DIOP Issa - Data Analyst
+
+## 📌 Contexte & Objectif
+Dans le cadre de mon cursus Data Analyst, j'ai réalisé une étude approfondie sur le marché Airbnb.
+**L'objectif :** Analyser un jeu de données complexe (~50 000 lignes) couvrant **10 grandes villes européennes** (Paris, Londres, Amsterdam, Berlin, etc.) pour identifier les facteurs influençant le prix et la satisfaction client.
+
+---
+
+## 🛠️ Méthodologie Technique
+Mon approche s'est déroulée en 3 étapes :
+
+1.  **Data Engineering :** * Agrégation automatisée de 20 fichiers CSV (Week-end vs Semaine).
+    * Nettoyage des données (suppression des colonnes inutiles `Unnamed:0`).
+    * Création de la variable `day_type` pour analyser l'impact du week-end.
+2.  **Analyse Exploratoire (EDA) :**
+    * Comparaison des prix moyens par ville.
+    * Étude de la corrélation Prix / Distance du centre.
+3.  **Visualisation :** Production de graphiques en "Flat Design" pour le rapport.
+
+---
+
+## 🔎 Résultats Visuels & Insights
+
+### 1. Cartographie des Prix : La domination d'Amsterdam
+Contrairement aux idées reçues, ce n'est pas Paris ou Londres qui affichent la moyenne la plus haute, mais **Amsterdam**, avec des prix dépassant souvent 500€ pour 2 nuits.
+
+![Carte Europe](images/map_europe.png)
+
+### 2. Classement des Villes (Moyenne 2 nuits)
+On observe une fracture Nord/Sud : les villes méditerranéennes (Athènes, Rome, Lisbonne) restent beaucoup plus abordables que les capitales du Nord.
+
+![Graphique Barres](images/barplot_price.png)
+
+### 3. Matrice de Corrélation
+L'analyse montre que :
+* Le **Prix** est négativement corrélé à la **Distance** (Plus on s'éloigne, moins c'est cher), surtout à Amsterdam (-0.26).
+* La **Satisfaction Client** est très fortement liée à la **Propreté**, mais très peu au prix. Payer cher ne garantit pas d'être satisfait !
+
+![Heatmap](images/heatmap.png)
+
+---
+
+## 📂 Structure du Projet
+
+```text
+├── data/               # Les 20 fichiers CSV bruts (Amsterdam, Paris, etc.)
+├── images/             # Les graphiques générés pour ce rapport
+├── notebooks/          # Le code complet (Google Colab .ipynb)
+└── README.md           # Ce fichier de présentation
