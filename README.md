@@ -5,6 +5,7 @@
 
 ![Python](https://img.shields.io/badge/Python-3.9-blue?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data-150458?style=for-the-badge&logo=pandas&logoColor=white)
+![Status](https://img.shields.io/badge/Status-Validé-success?style=for-the-badge)
 
 ---
 
@@ -16,6 +17,9 @@ L'objectif était de manipuler un dataset complexe, de le nettoyer et d'en tirer
 * **10 Villes :** Paris, Londres, Amsterdam, Berlin, Barcelone, Lisbonne, Rome, Vienne, Budapest, Athènes.
 * **Volume :** Environ 50 000 lignes de données.
 * **Variables :** Prix, Distance du centre, Type de logement, Statut Superhost, Satisfaction client.
+
+> **💡 C'est quoi un "Superhost" ?**
+> Un Superhost est un hôte expérimenté reconnu par Airbnb pour son hospitalité exceptionnelle. Pour obtenir ce badge, il faut avoir une note moyenne > 4.8/5, un taux de réponse élevé et très peu d'annulations. C'est un gage de qualité pour les voyageurs.
 
 ---
 
@@ -31,32 +35,37 @@ J'ai cherché à répondre à la question : **"Quels sont les facteurs qui font 
 
 * **Comparaison des villes :** Amsterdam est la ville la plus chère de l'échantillon, suivie de Londres.
 * **Impact de la distance :** On observe une corrélation négative. Plus on s'éloigne du centre, plus le prix baisse (logique, mais quantifié ici).
-* **Effet Superhost :** J'ai analysé si les Superhosts étaient plus chers ou mieux notés.
+* **Effet Superhost :** J'ai analysé si les Superhosts étaient plus chers ou mieux notés que les autres.
 
 ---
 
 ##  Visualisations Clés
 
-####  Distribution des Prix par Ville
+#### 1. Distribution des Prix par Ville
 On voit clairement que les villes du Nord (Amsterdam, Londres) sont plus chères que celles du Sud ou de l'Est (Athènes, Budapest).
 
 ![Prix Moyen](images/prix_par_ville.png)
 
-####  Prix vs Distance au Centre
+#### 2. Prix vs Distance au Centre
 Nuage de points montrant la concentration des prix élevés dans les 5 premiers kilomètres.
 
 ![Distance](images/scatter_distance.png)
 
-####  Impact du statut Superhost
-Les Superhosts ont des notes de satisfaction plus élevées et constantes.
+#### 3. Distribution Globale des Prix
+La majorité des logements se situent entre 100€ et 300€. La distribution est asymétrique avec une "longue traîne" vers les prix de luxe.
+
+![Histogramme](images/histogramme_prix.png)
+
+#### 4. Impact du statut Superhost (Satisfaction)
+Les Superhosts (en vert) ont des notes de satisfaction beaucoup plus resserrées vers le haut (médiane proche de 100/100) comparé aux hôtes standards (en orange).
 
 ![Superhost](images/boxplot_superhost.png)
 
 ---
 
-##  Conclusions & Insights
+## 💡 Conclusions & Insights
 1.  **La localisation prime :** L'hyper-centre (< 2km) concentre la valeur. Investir en périphérie lointaine nécessite une décote importante à l'achat pour rester rentable.
-2.  **La propreté est cruciale :** L'analyse des corrélations montre que la note de propreté est le facteur le plus lié à la satisfaction globale.
+2.  **Le Paradoxe du Superhost :** Mes données montrent que les Superhosts ne sont pas forcément plus chers, mais ils garantissent une satisfaction client maximale. C'est une stratégie de volume (remplissage) plutôt que de prix élevé.
 3.  **Opportunité :** Les villes comme **Budapest** ou **Lisbonne** offrent un excellent rapport qualité/prix (satisfaction élevée pour un prix moyen modéré), idéal pour un investissement touristique accessible.
 
 ---
