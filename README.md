@@ -1,58 +1,76 @@
-# 🌍 Analyse Stratégique du Marché Airbnb Europe
+# 🌍 Analyse de Données : Marché Airbnb Europe
 
-> **Projet Data Analysis - Janvier 2026**
-> Exploration de données et recommandations d'investissement sur le marché locatif européen.
+> **Projet Académique - Janvier 2026**
+> *Analyse exploratoire des déterminants de prix sur 10 capitales européennes.*
 
-![Python](https://img.shields.io/badge/Python-3.10-blue?style=for-the-badge&logo=python&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3.9-blue?style=for-the-badge&logo=python&logoColor=white)
 ![Pandas](https://img.shields.io/badge/Pandas-Data-150458?style=for-the-badge&logo=pandas&logoColor=white)
 ![Status](https://img.shields.io/badge/Status-Validé-success?style=for-the-badge)
 
 ---
 
-## 📌 Contexte & Objectif
-Dans le cadre de mon cursus Data Analyst, j'ai réalisé une étude approfondie sur le marché Airbnb.
-**L'objectif :** Analyser un jeu de données complexe (~50 000 lignes) couvrant **10 grandes villes européennes** (Paris, Londres, Amsterdam, Berlin, etc.) pour identifier les facteurs influençant le prix et la satisfaction client.
+## 📌 Contexte du Projet
+Dans le cadre de mon atelier de développement, j'ai analysé un jeu de données réel concernant les locations Airbnb.
+L'objectif était de manipuler un dataset complexe, de le nettoyer et d'en tirer des conclusions stratégiques pour un investisseur potentiel.
+
+**Périmètre de l'étude :**
+* **10 Villes :** Paris, Londres, Amsterdam, Berlin, Barcelone, Lisbonne, Rome, Vienne, Budapest, Athènes.
+* **Volume :** Environ 50 000 lignes de données.
+* **Variables :** Prix, Distance du centre, Type de logement, Statut Superhost, Satisfaction client.
 
 ---
 
-## 🛠️ Méthodologie Technique
-Mon approche s'est déroulée en 3 étapes :
+## ⚙️ Travail Réalisé
 
-1.  **Data Engineering :** * Agrégation automatisée de 20 fichiers CSV (Week-end vs Semaine).
-    * Nettoyage des données (suppression des colonnes inutiles `Unnamed:0`).
-    * Création de la variable `day_type` pour analyser l'impact du week-end.
-2.  **Analyse Exploratoire (EDA) :**
-    * Comparaison des prix moyens par ville.
-    * Étude de la corrélation Prix / Distance du centre.
-3.  **Visualisation :** Production de graphiques en "Flat Design" pour le rapport.
+### 1. Préparation des données (`pandas`)
+* Importation automatisée des 20 fichiers CSV (Week-end et Semaine).
+* Nettoyage des valeurs aberrantes (suppression des prix > 800€ qui faussaient les moyennes).
+* Création de nouvelles colonnes : `Prix_Par_Personne` et catégorisation de la `Zone` (Centre / Banlieue).
 
----
+### 2. Analyse Exploratoire
+J'ai cherché à répondre à la question : **"Quels sont les facteurs qui font varier le prix d'une nuit ?"**
 
-## 🔎 Résultats Visuels & Insights
-
-### 1. Cartographie des Prix : La domination d'Amsterdam
-Contrairement aux idées reçues, ce n'est pas Paris ou Londres qui affichent la moyenne la plus haute, mais **Amsterdam**, avec des prix dépassant souvent 500€ pour 2 nuits.
-
-![Carte Europe](images/map_europe.png)
-
-### 2. Classement des Villes (Moyenne 2 nuits)
-On observe une fracture Nord/Sud : les villes méditerranéennes (Athènes, Rome, Lisbonne) restent beaucoup plus abordables que les capitales du Nord.
-
-![Graphique Barres](images/barplot_price.png)
-
-### 3. Matrice de Corrélation
-L'analyse montre que :
-* Le **Prix** est négativement corrélé à la **Distance** (Plus on s'éloigne, moins c'est cher), surtout à Amsterdam (-0.26).
-* La **Satisfaction Client** est très fortement liée à la **Propreté**, mais très peu au prix. Payer cher ne garantit pas d'être satisfait !
-
-![Heatmap](images/heatmap.png)
+* **Comparaison des villes :** Amsterdam est la ville la plus chère de l'échantillon, suivie de Londres.
+* **Impact de la distance :** On observe une corrélation négative. Plus on s'éloigne du centre, plus le prix baisse (logique, mais quantifié ici).
+* **Effet Superhost :** J'ai analysé si les Superhosts étaient plus chers ou mieux notés.
 
 ---
 
-## 📂 Structure du Projet
+## 📊 Visualisations Clés
 
-```text
-├── data/               # Les 20 fichiers CSV bruts (Amsterdam, Paris, etc.)
-├── images/             # Les graphiques générés pour ce rapport
-├── notebooks/          # Le code complet (Google Colab .ipynb)
-└── README.md           # Ce fichier de présentation
+#### 💰 Distribution des Prix par Ville
+On voit clairement que les villes du Nord (Amsterdam, Londres) sont plus chères que celles du Sud ou de l'Est (Athènes, Budapest).
+
+![Prix Moyen](images/prix_par_ville.png)
+
+#### 📍 Prix vs Distance au Centre
+Nuage de points montrant la concentration des prix élevés dans les 5 premiers kilomètres.
+
+![Distance](images/scatter_distance.png)
+
+#### ⭐ Impact du statut Superhost
+Les Superhosts ont des notes de satisfaction plus élevées et constantes.
+
+![Superhost](images/boxplot_superhost.png)
+
+---
+
+## 💡 Conclusions & Insights
+1.  **La localisation prime :** L'hyper-centre (< 2km) concentre la valeur. Investir en périphérie lointaine nécessite une décote importante à l'achat pour rester rentable.
+2.  **La propreté est cruciale :** L'analyse des corrélations montre que la note de propreté est le facteur le plus lié à la satisfaction globale.
+3.  **Opportunité :** Les villes comme **Budapest** ou **Lisbonne** offrent un excellent rapport qualité/prix (satisfaction élevée pour un prix moyen modéré), idéal pour un investissement touristique accessible.
+
+---
+
+## 🚀 Installation
+Pour reproduire cette analyse :
+
+1.  Cloner le projet :
+    ```bash
+    git clone [https://github.com/PSEUDO/Projet_Airbnb.git](https://github.com/PSEUDO/Projet_Airbnb.git)
+    ```
+2.  Installer les librairies : `pip install -r requirements.txt`
+3.  Lancer le notebook `Projet_Airbnb.ipynb` via Jupyter ou Google Colab.
+
+---
+*Projet réalisé par [Ton Prénom] - Étudiant Data Analyst*
