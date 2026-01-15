@@ -62,7 +62,7 @@ Les Superhosts (en vert) ont des notes de satisfaction beaucoup plus resserrées
 
 ---
 
-## 💡 Conclusions & Insights
+##  Conclusions & Insights
 1.  **La localisation prime :** L'hyper-centre (< 2km) concentre la valeur. Investir en périphérie lointaine nécessite une décote importante à l'achat pour rester rentable.
 2.  **Le Paradoxe du Superhost :** Mes données montrent que les Superhosts ne sont pas forcément plus chers, mais ils garantissent une satisfaction client maximale. C'est une stratégie de volume (remplissage) plutôt que de prix élevé.
 3.  **Opportunité :** Les villes comme **Budapest** ou **Lisbonne** offrent un excellent rapport qualité/prix (satisfaction élevée pour un prix moyen modéré), idéal pour un investissement touristique accessible.
